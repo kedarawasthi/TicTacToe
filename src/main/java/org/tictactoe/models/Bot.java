@@ -2,7 +2,7 @@ package org.tictactoe.models;
 
 import javafx.util.Pair;
 import org.tictactoe.factories.BotPlayingStrategyFactory;
-import org.tictactoe.strategies.BotPlayingStrategy;
+import org.tictactoe.strategies.bot_playing.BotPlayingStrategy;
 
 public class Bot extends Player{
     private BotLevel botLevel;

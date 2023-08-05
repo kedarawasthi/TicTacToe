@@ -1,4 +1,4 @@
-package org.tictactoe.strategies;
+package org.tictactoe.strategies.bot_playing;
 
 import javafx.util.Pair;
 import org.tictactoe.exceptions.InvalidGameStateException;

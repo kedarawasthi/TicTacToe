@@ -1,8 +1,8 @@
 package org.tictactoe.factories;
 
 import org.tictactoe.models.BotLevel;
-import org.tictactoe.strategies.BotPlayingStrategy;
-import org.tictactoe.strategies.EasyBotPlayingStartegy;
+import org.tictactoe.strategies.bot_playing.BotPlayingStrategy;
+import org.tictactoe.strategies.bot_playing.EasyBotPlayingStartegy;
 
 public class BotPlayingStrategyFactory {
     public static BotPlayingStrategy getStrategy(BotLevel botLevel){

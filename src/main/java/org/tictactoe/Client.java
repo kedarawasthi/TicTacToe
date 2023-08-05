@@ -22,12 +22,18 @@ public class Client {
             Player player=new Player(name,symbol);
             players.add(player);
         }
+        boolean singlePLayerFlag=players.size()==1;
+        boolean inputForBotFlag=false;
 
-        System.out.println("Should we add a bot Y/N");
-        String addBot=scanner.next();
-        if(addBot.equalsIgnoreCase("y")){
-            players.add(new Bot("BOT-1",'B', BotLevel.LOW));
+        if(!singlePLayerFlag){
+            System.out.println("Should we add a bot Y/N");
+            String addBot = scanner.next();
+
+            inputForBotFlag = addBot.equalsIgnoreCase("y")?true:false;
         }
+       if(singlePLayerFlag || inputForBotFlag){
+           players.add(new Bot("BOT-1",'B', BotLevel.LOW));
+       }
 
         GameController gameController=new GameController();
         Game game;
@@ -44,8 +50,17 @@ public class Client {
             gameController.makeMove(game);
         }
 
+        if(gameController.getGameStatus(game).equals(GameStatus.ENDED)){
+            Player player=gameController.getCurrentPlayer(game);
+            System.out.println(player.getName()+" has Won !!!");
+        }
 
+        if(gameController.getGameStatus(game).equals(GameStatus.DRAW)){
+            Player player=gameController.getCurrentPlayer(game);
+            System.out.println(" Game was draw");
+        }
 
-
+        System.out.println("Final Board");
+        gameController.displayBoard(game);
     }
 }

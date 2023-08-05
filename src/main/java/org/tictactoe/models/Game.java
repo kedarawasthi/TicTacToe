@@ -2,6 +2,8 @@ package org.tictactoe.models;
 
 import javafx.util.Pair;
 import org.tictactoe.exceptions.InvalidGameConstructionException;
+import org.tictactoe.strategies.check_winning.OrderOneWinningStrategy;
+import org.tictactoe.strategies.check_winning.PlayerWonStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ public class Game {
     private int currentPlayerIndex;
     private GameStatus gameStatus;
     private List<Move> moves;
+    private PlayerWonStrategy playerWonStrategy;
 
     private Game(GameBuilder gameBuilder) {
         this.board = gameBuilder.board;
@@ -19,6 +22,7 @@ public class Game {
         this.currentPlayerIndex = gameBuilder.currentPlayerIndex;
         this.gameStatus = gameBuilder.gameStatus;
         this.moves = gameBuilder.moves;
+        this.playerWonStrategy=gameBuilder.playerWonStrategy;
     }
 
     //Builder method
@@ -48,10 +52,11 @@ public class Game {
         }
         Cell cell=board.getCell(nextMove.getKey(),nextMove.getValue()); // gets you the cell from board
         cell.setPlayer(currentPlayer); // setPlayer should also set status of cell to occupied
-        moves.add(new Move(cell,currentPlayer));
+        Move move = new Move(cell, currentPlayer);
+        moves.add(move);
 
         //step 4,5
-        if(checkForWin()){
+        if(checkForWin(move)){
             gameStatus=GameStatus.ENDED;
             return;
         }
@@ -78,14 +83,16 @@ public class Game {
         return moves.size() == (board.getSize() * board.getSize());
     }
 
-    private boolean checkForWin() {
-        return false;
+    private boolean checkForWin(Move move) {
+        return playerWonStrategy.hasWon(move);
     }
 
     public void displayBoard(){
         board.displayBoard(); //should be handled by board class
     }
-
+    public Player getCurrentPlayer(){
+        return players.get(currentPlayerIndex);
+    }
     //Getters and Setters
     public Board getBoard() {
         return board;
@@ -133,6 +140,7 @@ public class Game {
         private int currentPlayerIndex;
         private GameStatus gameStatus;
         private List<Move> moves;
+        private PlayerWonStrategy playerWonStrategy;
 
         public Game build() throws InvalidGameConstructionException{
             if(players == null || players.size()==0){
@@ -142,6 +150,7 @@ public class Game {
             this.currentPlayerIndex=0;
             this.gameStatus=GameStatus.IN_PROGRESS;
             this.moves=new ArrayList<>();
+            this.playerWonStrategy=new OrderOneWinningStrategy(board.getSize());
             return new Game(this);
         }
 
