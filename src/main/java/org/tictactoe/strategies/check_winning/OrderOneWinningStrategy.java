@@ -55,6 +55,27 @@ public class OrderOneWinningStrategy implements PlayerWonStrategy {
 
         return wonOnRow || wonOnCol || wonOnDiagonols || wonOnReverseDiagonols;
     }
+    @Override
+    public void handleUndo(Move move){
+        char symbol=move.getPlayer().getSymbol();
+        int row=move.getCell().getRow();
+        int col=move.getCell().getCol();
+        Map<Character,Integer> tempMap=rows.get(row);
+        tempMap.put(symbol,tempMap.get(symbol)-1);
 
+        tempMap=cols.get(col);
+        tempMap.put(symbol,tempMap.get(symbol)-1);
+        int n=rows.size();
+        boolean cellExistsOnDiagonol = (row == col);
+        boolean cellExistsOnReverseDiagonol = (row + col == n-1);
+
+        if(cellExistsOnDiagonol){
+            diagonols.put(symbol,diagonols.get(symbol)-1);
+        }
+        if(cellExistsOnReverseDiagonol){
+            reverseDiagonols.put(symbol,reverseDiagonols.get(symbol)-1);
+        }
+
+    }
 
 }

@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4180d089-cd45-42f3-a796-0c8d4fa3160f" name="Changes" comment="Initial code">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/check_winning/OrderOneWinningStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/check_winning/PlayerWonStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/HumanPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/UndoMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/factories/BotPlayingStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/factories/BotPlayingStrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/BotPlayingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/bot_playing/BotPlayingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/EasyBotPlayingStartegy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/bot_playing/EasyBotPlayingStartegy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/check_winning/OrderOneWinningStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/check_winning/OrderOneWinningStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/check_winning/PlayerWonStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/strategies/check_winning/PlayerWonStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690979908292</updated>
       <workItem from="1690979911335" duration="17464000" />
-      <workItem from="1691244828024" duration="8335000" />
+      <workItem from="1691244828024" duration="12830000" />
     </task>
     <task id="LOCAL-00001" summary="Initial code">
       <created>1691009668458</created>
@@ -162,16 +162,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial code" />
     <option name="LAST_COMMIT_MESSAGE" value="Initial code" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/tictactoe/Client.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -93,6 +93,45 @@ public class Game {
     public Player getCurrentPlayer(){
         return players.get(currentPlayerIndex);
     }
+    public void undo(){
+        /*
+        * needs to get list of moves and remove last move out of it
+        * undo should only be done for players not bot
+        * so make player abstract class and create two sep classes extend it to--> HumanPlayer and Bot
+        * we cant keep undoMove in abs player class because bot then it will be overridable to both human player and Bot,which means bot is able to do something which it
+        * won't be needed to do, that is undo feature should be restricted only to
+        * players,so BOt having access to undoMove method in player class violates liskov's Substitution principal
+        * so create new interface UndoMove and make HumanPLayer implement this interface instead so that only HumanPlayer has the capability to implement undoMove
+        *
+        * ask for a move from human player
+        * if resp is true from human player then
+        *   needs to get list of moves and remove last move out of it
+        *   update this chnage to PLayerWonStrategy
+        * else return
+        * */
+
+        int lastPlayerIdx = (currentPlayerIndex + players.size() - 1) % players.size();
+        Player lastPlayer=players.get(lastPlayerIdx);
+        if(lastPlayer instanceof HumanPlayer) {
+            HumanPlayer humanPlayer = (HumanPlayer) lastPlayer;
+            if (humanPlayer.undo()) {
+                /*
+                * remove last move for the player
+                * remove player from the removed moves cell
+                * update the PLayerWonStrategy with this change
+                * update current player with last player
+                *  call display board
+                * */
+                Move lastPlayedMove = moves.remove(lastPlayerIdx);
+                Cell cell = lastPlayedMove.getCell();
+                cell.removePlayer();
+                playerWonStrategy.handleUndo(lastPlayedMove);
+                currentPlayerIndex=lastPlayerIdx;
+                displayBoard();
+            }
+            return;
+        }
+    }
     //Getters and Setters
     public Board getBoard() {
         return board;

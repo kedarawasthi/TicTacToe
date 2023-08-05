@@ -4,4 +4,5 @@ import org.tictactoe.models.Move;
 
 public interface PlayerWonStrategy {
     public boolean hasWon(Move move);
+    public void handleUndo(Move move);
 }

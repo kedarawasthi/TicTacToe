@@ -19,7 +19,7 @@ public class Client {
             String name=scanner.next();
             System.out.println("Enter symbol for the player number "+(i+1));
             char symbol=scanner.next().charAt(0);
-            Player player=new Player(name,symbol);
+            Player player=new HumanPlayer(name,symbol);
             players.add(player);
         }
         boolean singlePLayerFlag=players.size()==1;
@@ -44,9 +44,15 @@ public class Client {
             System.out.println("Invalid Game Construction Exception "+ e.getMessage());
             return;
         }
-
+        boolean askUndoOnMove=false;
         while(gameController.getGameStatus(game).equals(GameStatus.IN_PROGRESS)){
             gameController.displayBoard(game);
+            if(askUndoOnMove){
+                gameController.undo(game);
+            }
+            else{
+                askUndoOnMove = true;
+            }
             gameController.makeMove(game);
         }
 
